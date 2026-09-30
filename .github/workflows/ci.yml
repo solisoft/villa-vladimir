@@ -95,7 +95,8 @@ jobs:
 
       # The app boots as on the server and answers /up (503 until the SoliDB
       # session store answers). Booting warms every handler: a missing view or
-      # a bad route fails here rather than in production.
+      # a bad route fails here rather than in production. `/` only redirects
+      # to a language, so the page probed is /fr.
       - name: The app boots and answers /up
         env:
           APP_ENV: test
@@ -111,15 +112,15 @@ jobs:
             kill -0 $pid 2>/dev/null || { echo "the server stopped before answering" >&2; break; }
             sleep 1
           done
-          landing="$(curl -s -o /dev/null -w '%{http_code}' -m 5 http://127.0.0.1:19557/ || echo 000)"
+          landing="$(curl -s -o /dev/null -w '%{http_code}' -m 15 http://127.0.0.1:19557/fr || echo 000)"
           kill -TERM $pid 2>/dev/null || true
           wait $pid 2>/dev/null || true
           if [ "$code" != "200" ] || [ "$landing" != "200" ]; then
-            echo "/up answered $code, / answered $landing:" >&2
+            echo "/up answered $code, /fr answered $landing:" >&2
             tail -40 /tmp/boot.log >&2
             exit 1
           fi
-          echo "/up -> 200, / -> 200"
+          echo "/up -> 200, /fr -> 200"
 
   deploy:
     name: deploy vv.solisoft.net
