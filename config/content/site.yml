@@ -1,0 +1,102 @@
+# Facts that do not change with the language. The texts live in fr.yml,
+# en.yml and es.yml, under the same keys (room texts under their slug).
+
+name: Vladimir Dream House
+host: Bernard
+street: Mirador de la Cala, 23
+city: 17300 Blanes (Girona)
+coordinates: 41°40′53″ N – 2°48′36″ E
+map_url: https://www.google.com/maps/search/?api=1&query=41.68139,2.81
+email: villa-vladimir@outlook.com
+phones:
+  - key: spain
+    number: +34 654 63 70 70
+    href: tel:+34654637070
+  - key: france
+    number: +33 6 80 05 76 85
+    href: tel:+33680057685
+
+# Each room reads two public Google Calendars kept by Bernard: `calendar`
+# holds one event per open night with its price ("160€ Libre Free"),
+# `blocked_calendar` the nights he closes by hand.
+rooms:
+  - slug: s-agulla
+    name: S'Agulla
+    calendar: 650ef89faf383871ade266fb3f63d0aac615e8ccc1b9e0983d534b3928e10fbd
+    blocked_calendar: bd3d22b7d44e94be046879a5a9da5b13ad962dd38231d24c03e481041d6e36a6
+    photos:
+      - s-agulla-1.jpg
+      - s-agulla-2.jpg
+      - s-agulla-3.jpg
+  - slug: pinya-de-rosa
+    name: Pinya de Rosa
+    calendar: 5f48e2a7a8d02c0a10d3148fc7a42af5cea69c641e395cd4a25f3621f1f9da4c
+    blocked_calendar: 283b8602b9c8f91fa9b8df54901d71bfa2e6e4aef2715c6ad6c1b934b588ef05
+    photos:
+      - pinya-de-rosa-1.jpg
+      - pinya-de-rosa-2.jpg
+      - pinya-de-rosa-3.jpg
+      - pinya-de-rosa-4.jpg
+      - pinya-de-rosa-5.jpg
+      - pinya-de-rosa-6.jpg
+  - slug: cala-bona
+    name: Cala Bona
+    calendar: df05e32733147aa1ef8f79e35262d0d6dab2d2c1eb67e722fefce7ead89757b4
+    blocked_calendar: 6e123105b05c261abd9f9061033f9c38547303a018a4ae28c18788bc87b88078
+    photos:
+      - cala-bona-1.jpg
+      - cala-bona-2.jpg
+      - cala-bona-3.jpg
+      - cala-bona-4.jpg
+  - slug: cala-blanca
+    name: Cala Blanca
+    calendar: 2eadd6fb80a07a96be33a713d0b10ec09b63d6203ab6db93e5a76e732f378e9f
+    blocked_calendar: 63fe7f2190077005d9c2a8d46064329c77082eacac292139a6b0fe4f931eec68
+    photos:
+      - cala-blanca-1.jpg
+      - cala-blanca-4.jpg
+      - cala-blanca-2.jpg
+      - cala-blanca-5.jpg
+      - cala-blanca-6.jpg
+      - cala-blanca-7.jpg
+
+# Photos under public/images/. Alt texts live in each language file, under
+# `photos`, keyed by the file name without its extension.
+spaces:
+  - key: breakfast
+    photo: villa/vue-pins.jpg
+  - key: sun_deck
+    photo: villa/sun-deck.jpg
+  - key: pool
+    photo: villa/piscine-palmes.jpg
+  - key: pool_deck
+    photo: villa/terrasse.jpg
+  - key: lounge
+    photo: villa/lounge.jpg
+villa_gallery:
+  - villa/coucher-de-soleil.jpg
+  - villa/diner-nuit.jpg
+  - villa/hublot.jpg
+  - villa/entree-fleurie.jpg
+  - villa/salon-baie.jpg
+  - villa/yacht.jpg
+  - villa/piscine-nuit.jpg
+  - villa/terrasse-soir.jpg
+  - villa/lune.jpg
+table_photos:
+  - villa/table-piscine.jpg
+  - villa/coin-repas.jpg
+surroundings_photos:
+  - environs/plage-sant-francesc.jpg
+  - environs/jardin-botanique-allee.jpg
+  - environs/cote-rocheuse.jpg
+  - environs/blanes.jpg
+access_photo: villa/colline.jpg
+itineraries:
+  - key: france
+    file: docs/vdh-france.pdf
+  - key: barcelona
+    file: docs/vdh-barcelona.pdf
+  - key: south
+    file: docs/vdh-sud-ap7.pdf
+terms_file: docs/conditions-generales-de-vente.pdf

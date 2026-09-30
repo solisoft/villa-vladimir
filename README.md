@@ -28,6 +28,20 @@ Or run as a daemon:
 soli serve . -d
 ```
 
+## Content and calendars
+
+- Texts live in `config/content/fr.yml`, `en.yml` and `es.yml` (same keys in
+  all three — `tests/site_content_spec.sl` checks it). Language-independent
+  facts (phones, email, rooms, photo lists) are in `config/content/site.yml`.
+- Each room reads Bernard's public Google Calendars: one event per open night
+  titled with its price (`160€ Libre Free`), `Non dispo` / `Busy` for a booked
+  night. A copy is kept in the `calendar_feeds` collection for an hour, and the
+  last copy is shown if Google does not answer (`app/services/availability.sl`).
+- Pages: `/fr`, `/en`, `/es`, and one page per room (`/fr/chambres/<slug>`,
+  `/en/rooms/<slug>`, `/es/habitaciones/<slug>`). The old site's
+  `/<lang>/-/<page>` addresses redirect (301) to their new place.
+- Run `bin/verifier` before shipping (fmt, lint, tests at 90 % coverage).
+
 ## Project Structure
 
 ```

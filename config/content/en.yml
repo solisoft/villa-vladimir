@@ -1,0 +1,317 @@
+en:
+  lang_name: English
+  og_locale: en_GB
+  meta:
+    title: Vladimir Dream House – sea-view guest rooms in Blanes, Costa Brava
+    description: >-
+      Four sea-view guest rooms above Sant Francesc cove in Blanes. Heated infinity pool, home
+      cooking, availability and prices online.
+  skip: Skip to content
+  nav:
+    villa: The villa
+    rooms: Rooms
+    table: Dining
+    surroundings: Surroundings
+    access: Getting here
+    book: Book
+    menu: Menu
+    languages: Site language
+
+  hero:
+    place: Blanes, Costa Brava
+    title: Four rooms facing the Mediterranean, above Sant Francesc cove
+    intro: >-
+      A south-facing villa in a natural setting arranged for peace and quiet. Every room looks out
+      to sea. The sandy beach is a few minutes' walk away; the fishing port of Blanes and lively
+      Lloret de Mar are a few minutes by car.
+    cta: See the rooms and prices
+    photo_alt: The villa's infinity pool, which seems to spill into the sea
+    facts:
+      - Four rooms, every one with a sea view
+      - Infinity pool, heated from May to September
+      - The beach is fifteen minutes' walk away
+
+  villa:
+    title: The villa
+    intro: >-
+      Facing due south, Vladimir Dream House has sunshine all year round. Around the pool, five
+      outdoor spaces follow the day, from breakfast to the evening aperitif.
+    spaces:
+      breakfast:
+        name: Breakfast Corner
+        text: >-
+          In the shade of pine trees and lush greenery, breakfast is served above the cove and the
+          beach. A fine way to start the day.
+      sun_deck:
+        name: Sun Deck
+        text: >-
+          On this terrace you could be on the prow of a ship, sunbathing towards the open sea with
+          the wind in your hair.
+      pool:
+        name: The pool
+        text: >-
+          Under an azure sky, the infinity pool seems to pour into the Mediterranean. A jacuzzi to
+          unwind, a counter-current to swim against, or simply the open sea to gaze at. The pool is
+          heated from May to September.
+      pool_deck:
+        name: Pool Deck
+        text: >-
+          This partly shaded terrace is for breakfast, then for an afternoon nap. Dinner can also be
+          served here, by the water.
+      lounge:
+        name: Lounge
+        text: >-
+          With its exotic decor, the outdoor lounge is the place for an aperitif and tapas. On hot
+          summer evenings, sip a cocktail here while the sea breeze comes in.
+    gallery_title: Pictures
+
+  rooms:
+    title: Rooms
+    intro: >-
+      All four rooms face south, with a panoramic sea view and a shared terrace or balcony.
+      Non-smoking rooms, internet in the shared areas.
+    price_includes: >-
+      The price includes the night, breakfast for two and use of the villa's outdoor facilities.
+    from_price: "From €{price} a night"
+    see_room: See the room and its availability
+    kinds:
+      suite: Suite
+      room: Room
+    s-agulla:
+      kind: suite
+      tagline: A Caribbean mood, overlooking the pool and the open sea
+      text: >-
+        Named after a small cove below the villa, this suite has an exotic, Caribbean feel and a
+        privileged view over the pool and the vast Mediterranean.
+      features:
+        - 150 × 200 cm bed
+        - Shower room with walk-in shower and toilet
+        - Balcony shared with Pinya de Rosa
+        - Access through the house
+        - Mini safe, satellite LED TV, USB socket
+        - 180° sea view
+    pinya-de-rosa:
+      kind: suite
+      tagline: Between the sea and the pine forest, with the sunrise reaching the bed
+      text: >-
+        To the east, a wide bay window looks over the pines of the Pinya de Rosa nature park and
+        the rocky coast. To the south, the pool in the foreground and the Mediterranean as far as
+        the eye can see. The rising sun reaches all the way to the bed.
+      features:
+        - 150 × 200 cm bed
+        - Bathroom with walk-in shower, bathtub, bidet and toilet
+        - Balcony shared with S'Agulla
+        - Access through the house
+        - Mini safe, satellite LED TV, USB socket
+        - 180° sea view
+    cala-bona:
+      kind: room
+      tagline: Named after a fishermen's cove a few hundred metres below
+      text: >-
+        This room takes its name from the cove a few hundred metres below. Once a favourite
+        shelter for fishermen, today an anchorage for sailors on their way to Barcelona or the
+        Balearics, Cala Bona is also a lovely beach with a family atmosphere.
+      features:
+        - 150 × 200 cm bed
+        - Shower room with separate toilet
+        - Air conditioning and heating
+        - Terrace shared with Cala Blanca
+        - Private entrance
+        - Mini safe, satellite LED TV, USB socket
+        - 180° sea view
+    cala-blanca:
+      kind: room
+      tagline: White like Mediterranean architecture
+      text: >-
+        Light and pure, Cala Blanca puts you in tune with the blue of the sky and the sea. Its wide
+        bay window opens onto a breathtaking view.
+      features:
+        - 150 × 200 cm bed
+        - Shower room with toilet
+        - Air conditioning and heating
+        - Terrace shared with Cala Bona
+        - Private entrance
+        - Mini safe, satellite LED TV, USB socket
+        - 180° sea view
+
+  room_page:
+    back: All rooms
+    features_title: In the room
+    availability_title: Availability and prices
+    availability_intro: Price per night, breakfast for two included.
+    price_range: "€{min} to €{max} a night"
+    next_free: "Next free night: {date}"
+    legend_free: Free, price of the night
+    legend_taken: Booked
+    legend_closed: Closed
+    unreachable: >-
+      The availability calendar is not answering right now. Ask Bernard about your dates directly.
+    empty: No dates are open for booking yet. Ask Bernard.
+    book: Ask Bernard for these dates
+    book_hint: Give your arrival and departure dates, and Bernard will confirm availability.
+    mail_subject: "Booking the {name} room"
+    other_rooms: The other rooms
+    photo_alt: "{name}, photo {number}"
+    previous_month: Previous month
+    next_month: Next month
+    title: "{name} {kind} – Vladimir Dream House, Blanes"
+
+  table:
+    title: Dining
+    lead: >-
+      Typically Mediterranean cooking, made from market produce and prepared especially for each
+      meal.
+    paragraphs:
+      - >-
+        Dinner is served on request, in the evening only. To make this possible, we ask you to
+        choose your menu the day before, one menu for the whole table.
+      - >-
+        A varied menu is given to you on arrival. The dishes follow traditional recipes learnt from
+        accomplished cooks met along the way.
+    dishes_intro: "Let yourself be tempted by local seafood, grilled a la plancha:"
+    dishes:
+      - name: Parrillada de pescado
+        note: grilled fresh fish
+      - name: Mariscada
+        note: grilled shellfish
+      - name: Navajas a la plancha
+        note: grilled razor clams
+      - name: Zarzuela
+        note: fresh fish casserole
+    more: And many other specialities, sometimes with a hint of the exotic.
+    wine: >-
+      In our bodega, a selection of French and Spanish wines, chosen from winegrower friends.
+
+  surroundings:
+    title: Surroundings
+    intro: >-
+      From the cove below to Barcelona, sorted by how long it takes to get there from the villa.
+    bands:
+      - label: 15 minutes on foot
+        detail: 5 minutes by car
+        places:
+          - Sant Francesc cove beach (free private parking)
+          - Social club swimming pool, 25 × 12 m, free (free private parking)
+          - Social club tennis, two courts, free (free private parking)
+          - Marimurtra botanical garden, Blanes
+          - Sant Joan castle and tower, panoramic view over Blanes
+      - label: Under 15 minutes
+        detail: by car
+        places:
+          - Pinya de Rosa botanical garden, Blanes
+          - Treumal, Sa Boadella and Fenals beaches
+          - Santa Cristina beach and hermitage
+          - Santa Clotilde gardens
+          - Beaches and seafronts of Blanes and Lloret de Mar
+          - Markets in Blanes (Monday) and Lloret de Mar (Tuesday)
+          - Sea museum, Lloret de Mar
+          - Boat trips between Blanes and Lloret de Mar
+          - Bowling in Blanes and Lloret de Mar
+          - Go-karting in Lloret de Mar and Palafolls
+          - Water World, Lloret de Mar
+          - Marineland, Malgrat de Mar
+          - Casino and nightclubs in Lloret de Mar
+      - label: Under 30 minutes
+        detail: by car
+        places:
+          - Canyelles, Malgrat de Mar and Santa Susanna beaches
+          - Tordera Sunday market and medieval castle
+          - Medieval town of Tossa de Mar
+          - PGA Catalunya (Caldes de Malavella), Sant Vicenç de Montalt and Lloret de Mar golf courses
+      - label: Under an hour
+        detail: by car
+        places:
+          - Barcelona, with a train every half hour from Blanes
+          - Circuit de Barcelona-Catalunya, Montmeló
+          - Girona and its remarkable old town
+          - The northern Costa Brava, up to the French border
+          - The Catalan hinterland, up to the Pyrenees
+    photos_title: Around the villa
+
+  access:
+    title: Getting here
+    contact_title: Book with Bernard
+    contact_text: >-
+      To book a room or ask a question, call or write to Bernard.
+    phones:
+      spain: Spain
+      france: France
+    email_label: Email
+    address_title: Address
+    map_link: Open in Google Maps
+    by_car_title: By car
+    by_car_text: >-
+      Follow the signs to Blanes hospital (Hospital de Blanes), then the detailed route for where
+      you are coming from.
+    itineraries:
+      france: Route from France
+      barcelona: Route from Barcelona
+      south: Route from the south (AP-7)
+    by_transit_title: By plane, train or boat
+    transit:
+      - place: Girona–Costa Brava airport
+        time: 30 min
+      - place: Girona railway station
+        time: 40 min
+      - place: Barcelona railway stations
+        time: 1 h
+      - place: Port of Barcelona
+        time: 1 h
+      - place: Barcelona–El Prat airport
+        time: 1 h 30
+      - place: Perpignan airport
+        time: 1 h 30
+    transit_note: >-
+      Transfers on request from these places, or coaches to the Blanes and Lloret de Mar bus
+      stations.
+    terms: Booking contract and terms (PDF, in French)
+
+  footer:
+    rights: Guest rooms and home cooking in Blanes, Costa Brava.
+
+  months:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+  weekdays:
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    - Sun
+
+  photos:
+    terrasse: The Pool Deck terrace, its parasols and the pool
+    vue-pins: Breakfast under the pines, facing the sea
+    sun-deck: The Sun Deck terrace and its loungers above the sea
+    piscine-palmes: The infinity pool between palm fronds
+    pool-deck: The Pool Deck terrace by the pool
+    lounge: The outdoor lounge with red geraniums
+    coucher-de-soleil: Red sunset over the Mediterranean
+    diner-nuit: Candlelit dinner by the lit pool
+    hublot: The sea through one of the villa's portholes
+    entree-fleurie: The villa's entrance, red walls and flowers
+    salon-baie: The living room and its bay windows over the sea
+    yacht: A yacht offshore, seen from the pool
+    piscine-nuit: The pool lit up at night
+    salon: The living room in the evening
+    terrasse-soir: The terrace at dusk
+    lune: Moonrise over the sea
+    table-piscine: A table laid by the pool
+    coin-repas: The villa's dining room
+    plage-sant-francesc: Sant Francesc cove beach
+    jardin-botanique-allee: A flowered path in the botanical garden
+    cote-rocheuse: The rocky coast under the pines
+    blanes: The bay of Blanes from above
+    colline: The villa on the hillside, among the pines

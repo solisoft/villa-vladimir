@@ -1,67 +1,159 @@
 /* Tailwind CSS v4 — CSS-first config (no tailwind.config.js needed) */
 @import "tailwindcss";
 
-/* Content is auto-detected: v4 scans the whole project (respecting .gitignore,
-   skipping node_modules / binaries), so views, Soli source, and JS are all
-   covered without an explicit source list. */
-
-/* Theme tokens — extend Tailwind's defaults */
+/* Palette taken from the villa itself: the raspberry of its walls, the navy
+   of the open sea, the turquoise of the pool, the white of its rails.
+   Turquoise is kept for one meaning only: a night you can book. */
 @theme {
-    --font-sans: Inter, system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
+    --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+    --font-display: Gloock, Georgia, serif;
+
+    --color-salt: #f5f8f8;
+    --color-foam: #e4edf1;
+    --color-sea: #0c2a47;
+    --color-sea-deep: #081d33;
+    --color-muted: #4b6277;
+    --color-villa: #a8203a;
+    --color-villa-deep: #861830;
+    --color-pool: #1b9aa6;
+    --color-pool-soft: #d3f0f1;
+    --color-line: #c9d7df;
 }
 
-/* Base styles */
 @layer base {
     html {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+        overflow-x: clip;
     }
 
     body {
-        @apply bg-white text-gray-900 leading-relaxed;
+        @apply bg-salt text-sea leading-relaxed;
+        font-size: 1.0625rem;
     }
 
-    h1 { @apply text-4xl font-bold tracking-tight; }
-    h2 { @apply text-3xl font-semibold tracking-tight; }
-    h3 { @apply text-2xl font-semibold; }
-    h4 { @apply text-xl font-medium; }
-    h5 { @apply text-lg font-medium; }
-    h6 { @apply text-base font-medium; }
+    h1, h2, h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 1.12;
+        text-wrap: balance;
+    }
 
-    a { @apply text-indigo-600 hover:text-indigo-500 transition-colors; }
+    p, li { text-wrap: pretty; }
 
-    img, video { @apply max-w-full h-auto; }
+    :focus-visible {
+        outline: 3px solid var(--color-villa);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    img { @apply max-w-full h-auto; }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
 }
 
-/* Custom application styles */
+@layer components {
+    .page {
+        @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    }
 
-/* Custom animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+    .measure { max-width: 38rem; }
 
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
+    .section-title {
+        @apply text-4xl sm:text-5xl text-sea;
+    }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
+    .btn-villa {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold
+            transition-colors duration-150 bg-villa text-white hover:bg-villa-deep;
+    }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
+    .text-link {
+        @apply font-semibold text-villa underline decoration-villa/30 underline-offset-4
+            hover:decoration-villa;
+    }
 
-::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.3);
-    border-radius: 4px;
-}
+    /* The hero photo, seen through a porthole: the villa's own image for
+       itself (its terrace is "the prow of a ship"). */
+    .porthole {
+        aspect-ratio: 1;
+        border-radius: 9999px;
+        overflow: hidden;
+        border: clamp(10px, 1.6vw, 18px) solid #fff;
+        box-shadow:
+            0 0 0 1px var(--color-line),
+            0 30px 60px -30px rgb(8 29 51 / 0.45);
+    }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.5);
+    .porthole img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% 50%;
+    }
+
+    /* The sea horizon of the hero photo, carried on across the page. */
+    .horizon {
+        position: absolute;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgb(12 42 71 / 0.3) 4rem);
+    }
+
+    /* Distance bands of the surroundings: a sounding line down the side. */
+    .band {
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .band::before {
+        content: "";
+        position: absolute;
+        left: 0.4rem;
+        top: 0.55rem;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 9999px;
+        background: var(--color-salt);
+        border: 2px solid var(--color-sea);
+    }
+
+    .band:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: calc(0.75rem - 1px);
+        top: 1.5rem;
+        bottom: -2.5rem;
+        width: 2px;
+        background: var(--color-line);
+    }
+
+    /* Availability calendar */
+    .month-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 3px;
+    }
+
+    .night {
+        @apply flex flex-col items-center justify-center rounded-md text-sm leading-tight;
+        min-height: 3.1rem;
+    }
+
+    .night-free { @apply bg-pool-soft text-sea; }
+    .night-free .night-price { @apply text-[0.7rem] font-semibold text-pool; }
+    .night-taken {
+        @apply text-muted/70 line-through;
+        background: repeating-linear-gradient(135deg, #eef2f4 0 5px, #e2e8ec 5px 10px);
+    }
+    .night-closed { @apply text-muted/50; }
+    .night-past { @apply text-muted/30; }
+
+    .swatch {
+        @apply inline-block h-4 w-6 rounded;
+    }
 }

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# The gate: everything that must pass before shipping, cheapest first. The CI
+# runs exactly this; run it before pushing. No step is optional.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+echo "── Format ──"
+soli fmt --check
+
+echo "── Lint ──"
+soli lint
+
+echo "── Tests, 90 % coverage ──"
+soli test --coverage --coverage-min 90
+
+echo "── Compiled CSS is committed ──"
+# The server serves public/ as it is: an empty file ships a site without style.
+test -s public/css/application.css

@@ -1,0 +1,323 @@
+fr:
+  lang_name: Français
+  og_locale: fr_FR
+  meta:
+    title: Vladimir Dream House – chambres d'hôtes face à la mer, Blanes, Costa Brava
+    description: >-
+      Quatre chambres d'hôtes avec vue sur la mer au-dessus de la cala Sant Francesc, à Blanes.
+      Piscine à débordement chauffée, table d'hôtes, disponibilités et prix en ligne.
+  skip: Aller au contenu
+  nav:
+    villa: La villa
+    rooms: Les chambres
+    table: Table d'hôtes
+    surroundings: Les environs
+    access: Accès et contact
+    book: Réserver
+    menu: Menu
+    languages: Langue du site
+
+  hero:
+    place: Blanes, Costa Brava
+    title: Quatre chambres face à la Méditerranée, au-dessus de la cala Sant Francesc
+    intro: >-
+      Une villa orientée plein sud, dans un cadre naturel aménagé pour le calme et la détente.
+      Toutes les chambres ont vue sur la mer. La plage de sable est à quelques minutes à pied,
+      le port de pêche de Blanes et la station animée de Lloret de Mar à quelques minutes en voiture.
+    cta: Voir les chambres et les prix
+    photo_alt: La piscine à débordement de la villa, qui semble se déverser dans la mer
+    facts:
+      - Quatre chambres, toutes avec vue sur la mer
+      - Piscine à débordement chauffée de mai à septembre
+      - La plage à quinze minutes à pied
+
+  villa:
+    title: La villa
+    intro: >-
+      Orientée plein sud, Vladimir Dream House profite du soleil toute l'année. Autour de la
+      piscine, cinq espaces extérieurs suivent le fil de la journée, du petit déjeuner à l'apéritif.
+    spaces:
+      breakfast:
+        name: Breakfast Corner
+        text: >-
+          À l'ombre des pins et d'une végétation luxuriante, le petit déjeuner vous attend
+          au-dessus de la cala et de la plage. De quoi bien commencer la journée.
+      sun_deck:
+        name: Sun Deck
+        text: >-
+          Sur cette terrasse, on se croirait à la proue d'un navire : bains de soleil face au
+          large, cheveux au vent.
+      pool:
+        name: La piscine
+        text: >-
+          Sous un ciel d'azur, la piscine à débordement semble se déverser dans la Méditerranée.
+          Jacuzzi pour se détendre, nage à contre-courant pour la forme, ou simplement le regard
+          perdu vers le large. Elle est chauffée de mai à septembre.
+      pool_deck:
+        name: Pool Deck
+        text: >-
+          Semi-ombragée, la terrasse accueille le petit déjeuner, puis la sieste. Le dîner d'hôte
+          peut aussi y être servi, au bord de l'eau.
+      lounge:
+        name: Lounge
+        text: >-
+          Dans son décor exotique, le salon extérieur vous attend à l'heure de l'apéritif et des
+          tapas. Les soirs d'été, c'est l'endroit idéal pour un cocktail en attendant la brise marine.
+    gallery_title: En images
+
+  rooms:
+    title: Les chambres
+    intro: >-
+      Les quatre chambres sont orientées plein sud, avec une vue panoramique sur la mer et une
+      terrasse ou un balcon partagé. Chambres non fumeur, Internet dans les parties communes.
+    price_includes: >-
+      Le prix comprend la nuit, les petits déjeuners pour deux personnes et l'accès aux
+      installations extérieures de la villa.
+    from_price: "À partir de {price} € la nuit"
+    see_room: Voir la chambre et ses disponibilités
+    kinds:
+      suite: Suite
+      room: Chambre
+    s-agulla:
+      kind: suite
+      tagline: Ambiance Caraïbes, vue sur la piscine et le large
+      text: >-
+        Elle tient son nom d'une petite crique en contrebas de la villa. Un parfum d'exotisme
+        règne dans cette suite aux accents caribéens, avec une vue privilégiée sur la piscine et
+        l'immensité de la Méditerranée.
+      features:
+        - Lit de 150 × 200 cm
+        - Salle d'eau avec douche à l'italienne et WC
+        - Balcon partagé avec Pinya de Rosa
+        - Accès par la maison
+        - Mini coffre-fort, TV LED satellite, prise USB
+        - Vue mer à 180°
+    pinya-de-rosa:
+      kind: suite
+      tagline: Entre la mer et la pinède, le soleil levant jusque dans le lit
+      text: >-
+        À l'est, une large baie donne sur la pinède du parc naturel de Pinya de Rosa et la côte
+        rocheuse. Au sud, la piscine au premier plan et la Méditerranée à perte de vue. Le soleil
+        levant vient vous caresser jusque dans le lit.
+      features:
+        - Lit de 150 × 200 cm
+        - Salle d'eau avec douche à l'italienne, baignoire, bidet et WC
+        - Balcon partagé avec S'Agulla
+        - Accès par la maison
+        - Mini coffre-fort, TV LED satellite, prise USB
+        - Vue mer à 180°
+    cala-bona:
+      kind: room
+      tagline: Le nom d'une crique de pêcheurs, quelques centaines de mètres plus bas
+      text: >-
+        Cette chambre porte le nom de la crique qui se trouve quelques centaines de mètres en
+        contrebas. Autrefois abri apprécié des pêcheurs, aujourd'hui mouillage des plaisanciers en
+        route vers Barcelone ou les Baléares, Cala Bona est aussi une belle plage à l'ambiance
+        familiale.
+      features:
+        - Lit de 150 × 200 cm
+        - Salle d'eau avec douche et WC séparés
+        - Climatisation réversible
+        - Terrasse partagée avec Cala Blanca
+        - Accès privé
+        - Mini coffre-fort, TV LED satellite, prise USB
+        - Vue mer à 180°
+    cala-blanca:
+      kind: room
+      tagline: Blanche comme l'architecture méditerranéenne
+      text: >-
+        Empreinte de légèreté et de pureté, Cala Blanca vous met en parfaite harmonie avec l'azur
+        du ciel et de la mer. Sa large baie ouvre sur un panorama à couper le souffle.
+      features:
+        - Lit de 150 × 200 cm
+        - Salle d'eau avec douche et WC
+        - Climatisation réversible
+        - Terrasse partagée avec Cala Bona
+        - Accès privé
+        - Mini coffre-fort, TV LED satellite, prise USB
+        - Vue mer à 180°
+
+  room_page:
+    back: Toutes les chambres
+    features_title: Dans la chambre
+    availability_title: Disponibilités et prix
+    availability_intro: Prix par nuit, petits déjeuners pour deux personnes compris.
+    price_range: "De {min} à {max} € la nuit"
+    next_free: "Prochaine nuit libre : {date}"
+    legend_free: Libre, prix de la nuit
+    legend_taken: Réservé
+    legend_closed: Fermé
+    unreachable: >-
+      Le calendrier des disponibilités ne répond pas pour le moment. Demandez directement vos
+      dates à Bernard.
+    empty: Aucune date n'est ouverte à la réservation pour l'instant. Demandez à Bernard.
+    book: Demander ces dates à Bernard
+    book_hint: Indiquez vos dates d'arrivée et de départ, Bernard vous confirme la disponibilité.
+    mail_subject: "Réservation chambre {name}"
+    other_rooms: Les autres chambres
+    photo_alt: "{name}, photo {number}"
+    previous_month: Mois précédent
+    next_month: Mois suivant
+    title: "{kind} {name} – Vladimir Dream House, Blanes"
+
+  table:
+    title: La table d'hôtes
+    lead: >-
+      Une cuisine méditerranéenne préparée avec les produits du marché, cuisinée spécialement pour
+      chaque repas.
+    paragraphs:
+      - >-
+        Le dîner est servi sur demande, le soir uniquement. Pour tenir cet engagement, nous vous
+        demandons de choisir votre menu la veille, le même pour toute la table.
+      - >-
+        Une carte variée vous est proposée dès votre arrivée. Les plats suivent des recettes
+        traditionnelles, apprises au fil des rencontres avec des cuisinières de talent.
+    dishes_intro: "Laissez-vous tenter par les spécialités de la mer, à la plancha :"
+    dishes:
+      - name: Parrillada de pescado
+        note: grillade de poissons frais
+      - name: Mariscada
+        note: crustacés à la plancha
+      - name: Navajas a la plancha
+        note: couteaux grillés
+      - name: Zarzuela
+        note: marmite de poissons frais
+    more: Et bien d'autres spécialités, parfois teintées d'un brin d'exotisme.
+    wine: >-
+      Dans notre bodega, une sélection de vins français et espagnols, choisis chez des vignerons
+      amis.
+
+  surroundings:
+    title: Les environs
+    intro: >-
+      De la crique en contrebas jusqu'à Barcelone, classés par le temps qu'il faut pour y aller
+      depuis la villa.
+    bands:
+      - label: À 15 minutes à pied
+        detail: 5 minutes en voiture
+        places:
+          - Plage de la cala Sant Francesc (parking privé gratuit)
+          - Piscine du club social, 25 × 12 m, gratuite (parking privé gratuit)
+          - Tennis du club social, deux courts, gratuits (parking privé gratuit)
+          - Jardin botanique Marimurtra, Blanes
+          - Château de Sant Joan et sa tour, vue panoramique sur Blanes
+      - label: À moins de 15 minutes
+        detail: en voiture
+        places:
+          - Jardin botanique Pinya de Rosa, Blanes
+          - Plages de Treumal, Sa Boadella et Fenals
+          - Plage et ermitage de Santa Cristina
+          - Jardins de Santa Clotilde
+          - Plages et front de mer de Blanes et de Lloret de Mar
+          - Marchés de Blanes (lundi) et de Lloret de Mar (mardi)
+          - Musée de la mer, Lloret de Mar
+          - Promenades en bateau entre Blanes et Lloret de Mar
+          - Bowlings de Blanes et de Lloret de Mar
+          - Karting à Lloret de Mar et à Palafolls
+          - Water World, Lloret de Mar
+          - Marineland, Malgrat de Mar
+          - Casino et discothèques de Lloret de Mar
+      - label: À moins de 30 minutes
+        detail: en voiture
+        places:
+          - Plages de Canyelles, Malgrat de Mar et Santa Susanna
+          - Marché du dimanche et château médiéval de Tordera
+          - Village médiéval de Tossa de Mar
+          - Golfs PGA Catalunya (Caldes de Malavella), Sant Vicenç de Montalt et Lloret de Mar
+      - label: À moins d'une heure
+        detail: en voiture
+        places:
+          - Barcelone, avec un train toutes les demi-heures depuis Blanes
+          - Circuit de Barcelone-Catalogne, Montmeló
+          - Gérone et son remarquable centre historique
+          - La Costa Brava nord, jusqu'à la frontière française
+          - L'arrière-pays catalan, jusqu'aux Pyrénées
+    photos_title: Autour de la villa
+
+  access:
+    title: Accès et contact
+    contact_title: Réserver auprès de Bernard
+    contact_text: >-
+      Pour réserver une chambre ou poser une question, appelez ou écrivez à Bernard.
+    phones:
+      spain: Espagne
+      france: France
+    email_label: Courriel
+    address_title: Adresse
+    map_link: Ouvrir dans Google Maps
+    by_car_title: En voiture
+    by_car_text: >-
+      Suivez la direction de l'hôpital de Blanes (Hospital de Blanes), puis l'itinéraire détaillé
+      qui correspond à votre provenance.
+    itineraries:
+      france: Itinéraire depuis la France
+      barcelona: Itinéraire depuis Barcelone
+      south: Itinéraire depuis le sud (AP-7)
+    by_transit_title: En avion, en train ou en bateau
+    transit:
+      - place: Aéroport de Gérone–Costa Brava
+        time: 30 min
+      - place: Gare de Gérone
+        time: 40 min
+      - place: Gares de Barcelone
+        time: 1 h
+      - place: Port de Barcelone
+        time: 1 h
+      - place: Aéroport de Barcelone–El Prat
+        time: 1 h 30
+      - place: Aéroport de Perpignan
+        time: 1 h 30
+    transit_note: >-
+      Transferts sur demande depuis ces lieux, ou autocars jusqu'aux gares routières de Blanes et
+      de Lloret de Mar.
+    terms: Contrat de réservation et conditions générales (PDF)
+
+  footer:
+    rights: Chambres d'hôtes et table d'hôtes à Blanes, Costa Brava.
+
+  months:
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+  weekdays:
+    - lun.
+    - mar.
+    - mer.
+    - jeu.
+    - ven.
+    - sam.
+    - dim.
+
+  photos:
+    terrasse: La terrasse Pool Deck, ses parasols et la piscine
+    vue-pins: Petit déjeuner sous les pins, face à la mer
+    sun-deck: La terrasse Sun Deck et ses transats au-dessus de la mer
+    piscine-palmes: La piscine à débordement entre les palmes
+    pool-deck: La terrasse Pool Deck au bord de la piscine
+    lounge: Le salon extérieur fleuri de géraniums
+    coucher-de-soleil: Coucher de soleil rouge sur la Méditerranée
+    diner-nuit: Dîner aux chandelles au bord de la piscine éclairée
+    hublot: La mer vue à travers un hublot de la villa
+    entree-fleurie: L'entrée de la villa, murs rouges et fleurs
+    salon-baie: Le salon et ses baies vitrées ouvertes sur la mer
+    yacht: Un yacht au large, vu depuis la piscine
+    piscine-nuit: La piscine éclairée la nuit
+    salon: Le salon intérieur en soirée
+    terrasse-soir: La terrasse au crépuscule
+    lune: Lever de lune sur la mer
+    table-piscine: Table dressée au bord de la piscine
+    coin-repas: La salle à manger de la villa
+    plage-sant-francesc: La plage de la cala Sant Francesc
+    jardin-botanique-allee: Une allée fleurie du jardin botanique
+    cote-rocheuse: La côte rocheuse sous les pins
+    blanes: La baie de Blanes vue d'en haut
+    colline: La villa à flanc de colline, au milieu des pins

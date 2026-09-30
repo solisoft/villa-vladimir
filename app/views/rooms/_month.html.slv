@@ -1,0 +1,27 @@
+<%# One month of the availability calendar, Monday first %>
+<div>
+    <h3 class="text-xl first-letter:uppercase"><%= month["label"] %></h3>
+    <div class="month-grid mt-3" role="table" aria-label="<%= month["label"] %>">
+        <div class="contents" role="row">
+<% for weekday in words["weekdays"] %>
+            <span role="columnheader" class="pb-1 text-center text-xs text-muted"><%= weekday %></span>
+<% end %>
+        </div>
+<% for week in month["weeks"] %>
+        <div class="contents" role="row">
+<% for night in week %>
+<% if night.nil? %>
+            <span role="cell"></span>
+<% else %>
+            <span role="cell" class="night night-<%= night["state"] %>">
+                <span><%= night["day"] %></span>
+<% if night["state"] == "free" && night["price"] %>
+                <span class="night-price"><%= night["price"] %> €</span>
+<% end %>
+            </span>
+<% end %>
+<% end %>
+        </div>
+<% end %>
+    </div>
+</div>

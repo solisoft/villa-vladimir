@@ -1,23 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="<%= locale %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> - Soli App</title>
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="theme-color" content="#0c2a47">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="<%= words["og_locale"] %>">
+    <meta property="og:site_name" content="Vladimir Dream House">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:image" content="<%= og_image %>">
+<% for alternate in alternates %>
+    <link rel="alternate" hreflang="<%= alternate["locale"] %>" href="<%= alternate["path"] %>">
+<% end %>
 
-    <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="<%= public_path("css/application.css") %>">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-full bg-slate-950 text-white font-sans antialiased">
-    <%= yield %>
+<body class="min-h-full font-sans">
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-sea focus:px-4 focus:py-2 focus:text-white"><%= words["skip"] %></a>
 
-    <!-- HTMx + Alpine.js (Soli's default client stack — see /docs/core-concepts/client-interactivity) -->
-    <script defer src="<%= public_path("js/htmx.min.js") %>"></script>
-    <script defer src="<%= public_path("js/alpine.min.js") %>"></script>
+    <header class="sticky top-0 z-40 border-b border-line/70 bg-salt/90 backdrop-blur">
+        <div class="page flex h-16 items-center justify-between gap-6">
+            <a href="<%= home_path %>" class="font-display text-xl leading-none text-sea sm:text-2xl">Vladimir Dream House</a>
+
+            <nav aria-label="<%= words["nav"]["menu"] %>" class="hidden items-center gap-6 text-[0.95rem] lg:flex">
+                <a href="<%= home_path %>#villa" class="hover:text-villa"><%= words["nav"]["villa"] %></a>
+                <a href="<%= home_path %>#chambres" class="hover:text-villa"><%= words["nav"]["rooms"] %></a>
+                <a href="<%= home_path %>#table" class="hover:text-villa"><%= words["nav"]["table"] %></a>
+                <a href="<%= home_path %>#environs" class="hover:text-villa"><%= words["nav"]["surroundings"] %></a>
+                <a href="<%= home_path %>#acces" class="hover:text-villa"><%= words["nav"]["access"] %></a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <ul class="hidden items-center gap-1 text-sm sm:flex" aria-label="<%= words["nav"]["languages"] %>">
+<% for alternate in alternates %>
+                    <li><a href="<%= alternate["path"] %>" hreflang="<%= alternate["locale"] %>" lang="<%= alternate["locale"] %>" title="<%= alternate["name"] %>"
+                        class="rounded px-1.5 py-0.5 uppercase <%= alternate["current"] ? "bg-sea text-white" : "text-muted hover:text-sea" %>"
+                        <%- alternate["current"] ? "aria-current=\"true\"" : "" %>><%= alternate["locale"] %></a></li>
+<% end %>
+                </ul>
+                <a href="<%= home_path %>#acces" class="btn-villa hidden !px-5 !py-2 text-sm md:inline-flex"><%= words["nav"]["book"] %></a>
+
+                <details class="relative lg:hidden">
+                    <summary class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-sea/30 px-4 py-2 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+                        <%= words["nav"]["menu"] %>
+                    </summary>
+                    <div class="absolute right-0 mt-2 w-64 rounded-2xl border border-line bg-white p-3 shadow-xl">
+                        <a href="<%= home_path %>#villa" class="block rounded-lg px-3 py-2 hover:bg-foam"><%= words["nav"]["villa"] %></a>
+                        <a href="<%= home_path %>#chambres" class="block rounded-lg px-3 py-2 hover:bg-foam"><%= words["nav"]["rooms"] %></a>
+                        <a href="<%= home_path %>#table" class="block rounded-lg px-3 py-2 hover:bg-foam"><%= words["nav"]["table"] %></a>
+                        <a href="<%= home_path %>#environs" class="block rounded-lg px-3 py-2 hover:bg-foam"><%= words["nav"]["surroundings"] %></a>
+                        <a href="<%= home_path %>#acces" class="block rounded-lg px-3 py-2 hover:bg-foam"><%= words["nav"]["access"] %></a>
+                        <div class="mt-2 flex gap-2 border-t border-line px-3 pt-3 text-sm">
+<% for alternate in alternates %>
+                            <a href="<%= alternate["path"] %>" hreflang="<%= alternate["locale"] %>" lang="<%= alternate["locale"] %>" class="<%= alternate["current"] ? "font-semibold text-sea" : "text-muted" %>"><%= alternate["name"] %></a>
+<% end %>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenu">
+        <%= yield %>
+    </main>
+
+    <footer class="bg-sea-deep text-white/80">
+        <div class="page grid gap-8 py-12 text-sm sm:grid-cols-[1.4fr_1fr_1fr]">
+            <div>
+                <p class="font-display text-2xl text-white">Vladimir Dream House</p>
+                <p class="mt-2 max-w-xs"><%= words["footer"]["rights"] %></p>
+            </div>
+            <address class="not-italic">
+                <%= site["street"] %><br>
+                <%= site["city"] %><br>
+                <a href="<%= site["map_url"] %>" class="underline underline-offset-4 hover:text-white"><%= words["access"]["map_link"] %></a>
+            </address>
+            <div>
+<% for phone in site["phones"] %>
+                <p><span class="text-white/50"><%= words["access"]["phones"][phone["key"]] %></span> <a href="<%= phone["href"] %>" class="whitespace-nowrap hover:text-white"><%= phone["number"] %></a></p>
+<% end %>
+                <p><a href="mailto:<%= site["email"] %>" class="underline underline-offset-4 hover:text-white"><%= site["email"] %></a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

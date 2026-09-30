@@ -1,0 +1,110 @@
+<section class="py-10 sm:py-14">
+    <div class="page">
+        <p><a href="<%= home_path %>#chambres" class="text-link"><%= words["room_page"]["back"] %></a></p>
+
+        <div class="mt-6 grid gap-4 lg:grid-cols-[1fr_1.5fr] lg:items-end lg:gap-16">
+            <div>
+                <p class="text-muted"><%= room["kind_label"] %></p>
+                <h1 class="text-5xl sm:text-6xl"><%= room["name"] %></h1>
+            </div>
+            <p class="measure text-lg text-muted"><%= room["tagline"] %></p>
+        </div>
+
+        <%# First photo large, the others as a strip %>
+        <div class="mt-10 grid gap-3 md:grid-cols-[2fr_1fr]">
+            <img src="<%= photos[0]["src"] %>" alt="<%= photos[0]["alt"] %>" class="aspect-[3/2] h-full w-full rounded-2xl object-cover md:row-span-2">
+<% for photo in photos.drop(1).take(2) %>
+            <img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="hidden aspect-[3/2] h-full w-full rounded-2xl object-cover md:block">
+<% end %>
+        </div>
+<% if photos.length > 1 %>
+        <div class="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+<% for photo, index in photos.drop(1) %>
+            <a href="<%= photo["src"] %>" class="<%= index < 2 ? "md:hidden" : "" %> block overflow-hidden rounded-xl"><img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="aspect-square w-full object-cover transition-transform duration-300 hover:scale-105"></a>
+<% end %>
+        </div>
+<% end %>
+
+        <div class="mt-14 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+            <div>
+                <p class="measure text-xl leading-relaxed"><%= room["text"] %></p>
+                <p class="measure mt-6 text-muted"><%= words["rooms"]["price_includes"] %></p>
+            </div>
+            <div>
+                <h2 class="text-2xl"><%= words["room_page"]["features_title"] %></h2>
+                <ul class="mt-4 divide-y divide-line border-y border-line">
+<% for feature in room["features"] %>
+                    <li class="py-2.5"><%= feature %></li>
+<% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%# Free nights and prices, read from Bernard's calendar %>
+<section id="disponibilites" class="border-t border-line bg-white py-16 sm:py-20">
+    <div class="page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <h2 class="section-title"><%= words["room_page"]["availability_title"] %></h2>
+                <p class="mt-3 text-muted"><%= words["room_page"]["availability_intro"] %></p>
+            </div>
+            <div class="sm:text-right">
+<% if price_range %>
+                <p class="font-display text-2xl"><%= price_range %></p>
+<% end %>
+<% if next_free %>
+                <p class="text-muted"><%= next_free %></p>
+<% end %>
+            </div>
+        </div>
+
+<% if !calendar_reachable %>
+        <p class="mt-8 rounded-2xl bg-foam p-6"><%= words["room_page"]["unreachable"] %></p>
+<% elsif months.length == 0 %>
+        <p class="mt-8 rounded-2xl bg-foam p-6"><%= words["room_page"]["empty"] %></p>
+<% else %>
+        <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            <li class="flex items-center gap-2"><span class="swatch bg-pool-soft"></span><%= words["room_page"]["legend_free"] %></li>
+            <li class="flex items-center gap-2"><span class="swatch night-taken"></span><%= words["room_page"]["legend_taken"] %></li>
+            <li class="flex items-center gap-2"><span class="swatch border border-line"></span><%= words["room_page"]["legend_closed"] %></li>
+        </ul>
+
+        <div class="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+<% for month in months %>
+            <%- partial("rooms/month", {"month": month}) %>
+<% end %>
+        </div>
+<% end %>
+
+        <div class="mt-14 flex flex-col gap-6 rounded-3xl bg-foam p-6 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+                <p class="measure text-lg"><%= words["room_page"]["book_hint"] %></p>
+                <p class="mt-2 text-muted">
+<% for phone in site["phones"] %>
+                    <span class="mr-4 whitespace-nowrap"><%= words["access"]["phones"][phone["key"]] %> <a href="<%= phone["href"] %>" class="font-semibold text-sea hover:text-villa"><%= phone["number"] %></a></span>
+<% end %>
+                </p>
+            </div>
+            <a href="<%= mail_href %>" class="btn-villa shrink-0"><%= words["room_page"]["book"] %></a>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 sm:py-20">
+    <div class="page">
+        <h2 class="text-3xl"><%= words["room_page"]["other_rooms"] %></h2>
+        <ul class="mt-8 grid gap-6 sm:grid-cols-3">
+<% for other in other_rooms %>
+            <li>
+                <a href="<%= other["path"] %>" class="group block">
+                    <img src="<%= other["photo"] %>" alt="" loading="lazy" class="aspect-[3/2] w-full rounded-2xl object-cover">
+                    <span class="mt-3 block text-sm text-muted"><%= other["kind_label"] %></span>
+                    <span class="font-display text-2xl group-hover:text-villa"><%= other["name"] %></span>
+                </a>
+            </li>
+<% end %>
+        </ul>
+    </div>
+</section>
