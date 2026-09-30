@@ -14,7 +14,8 @@
 # The repository is public, so both jobs run on GitHub-hosted runners, never
 # on our own build machine: a fork's pull request can change this file and
 # would otherwise run its own code there. Secrets are not given to pull
-# requests from forks, and the deploy job only runs on a push to main.
+# requests from forks, and the deploy job only runs from main (a push or a
+# manual run).
 #
 # The site folder must already exist on the server with its app.infos and its
 # .env. This workflow creates neither and touches no other folder.
@@ -125,7 +126,7 @@ jobs:
   deploy:
     name: deploy vv.solisoft.net
     needs: gate
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
     permissions:
       contents: read
