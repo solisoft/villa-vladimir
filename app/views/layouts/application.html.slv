@@ -17,6 +17,7 @@
 <% end %>
 
     <link rel="stylesheet" href="<%= public_path("css/application.css") %>">
+    <script defer src="<%= public_path("js/slideshow.js") %>"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

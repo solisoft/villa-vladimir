@@ -8,7 +8,10 @@ class HomeController < SiteController
 
   # GET /:locale — the villa, the rooms, dining, surroundings, getting here
   def index(req)
-    @_prepare(params["locale"])
+    locale = params["locale"]
+    return halt(404, "Not found") unless SiteContent.locale?(locale)
+
+    @_prepare(locale)
     @title = @words["meta"]["title"]
     @alternates = @_alternates(fn(code) { SiteContent.home_path(code) })
     @rooms = @rooms.map do |room|
@@ -26,7 +29,7 @@ class HomeController < SiteController
   # GET /:locale/-/:page — an address of the old site, moved for good
   def legacy(req)
     locale = params["locale"]
-    halt(404, "Not found") unless SiteContent.locale?(locale)
+    return halt(404, "Not found") unless SiteContent.locale?(locale)
 
     {
       "status": 301,

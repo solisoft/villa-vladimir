@@ -153,6 +153,27 @@
     .night-closed { @apply text-muted/50; }
     .night-past { @apply text-muted/30; }
 
+    /* Room photo slideshow (public/js/slideshow.js) */
+    .slideshow {
+        width: 100vw;
+        height: 100dvh;
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: var(--color-sea-deep);
+    }
+
+    html:has(.slideshow[open]) { overflow: hidden; }
+
+    .slideshow::backdrop { background: rgb(8 29 51 / 0.7); }
+
+    .slideshow-arrow {
+        @apply absolute top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full
+            bg-white/10 text-white transition-colors hover:bg-white/25;
+    }
+
     .swatch {
         @apply inline-block h-4 w-6 rounded;
     }

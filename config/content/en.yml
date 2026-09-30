@@ -152,8 +152,10 @@ en:
     mail_subject: "Booking the {name} room"
     other_rooms: The other rooms
     photo_alt: "{name}, photo {number}"
-    previous_month: Previous month
-    next_month: Next month
+    previous_photo: Previous photo
+    next_photo: Next photo
+    close_photos: Close
+    see_photos: "See all {count} photos"
     title: "{name} {kind} – Vladimir Dream House, Blanes"
 
   table:

@@ -226,16 +226,14 @@ describe("Availability") do
 
     test("merges a room's price and blocked calendars") do
       now = DateTime.utc.to_unix
-      prices = availability_spec_ics([[
-        "20270601",
-        "20270603",
-        "150€ Libre Free"
-      ]])
-      blocked = availability_spec_ics([[
+      price_night = ["20270601", "20270603", "150€ Libre Free"]
+      blocked_night = [
         "20270602",
         "20270603",
         "Non dispo"
-      ]])
+      ]
+      prices = availability_spec_ics([price_night])
+      blocked = availability_spec_ics([blocked_night])
       CalendarFeed.remember(nil, "spec-prices", prices, now)
       CalendarFeed.remember(nil, "spec-blocked", blocked, now)
       table = Availability.for_room({

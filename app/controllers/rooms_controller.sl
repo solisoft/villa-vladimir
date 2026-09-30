@@ -5,11 +5,11 @@ class RoomsController < SiteController
   # GET /en/rooms/:slug
   # GET /es/habitaciones/:slug — the room page, in the language of its path
   def show(req)
-    @_prepare(req.path.split("/")[1])
+    @_prepare(req.path.split("/")[1])  # routes only exist for our locales
     matching = @rooms.filter do |room|
       room["slug"] == params["slug"]
     end
-    halt(404, "Not found") if matching.length == 0
+    return halt(404, "Not found") if matching.length == 0
 
     @room = matching[0]
 
@@ -44,6 +44,7 @@ class RoomsController < SiteController
         "alt": alt
       }
     end
+    @see_photos = SiteContent.fill(page["see_photos"], {"count": @photos.length})
     @_load_availability(page)
   end
 

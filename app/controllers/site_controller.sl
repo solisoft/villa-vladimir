@@ -8,9 +8,9 @@ class SiteController < Controller
 
   private
 
+  # Callers check the locale first and `return halt(...)`: on Soli 2.9.1,
+  # which production runs, halt answers but does not stop the action.
   def _prepare(locale)
-    halt(404, "Not found") unless SiteContent.locale?(locale)
-
     @locale = locale
     @site = SiteContent.site
     @words = SiteContent.texts(locale)

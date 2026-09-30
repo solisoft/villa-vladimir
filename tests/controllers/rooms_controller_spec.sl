@@ -45,6 +45,9 @@ describe("RoomsController") do
     expect(page["next_free"].starts_with("Prochaine nuit libre")).to_equal(true)
     expect(page["other_rooms"].length).to_equal(3)
     expect(page["photos"].length).to_equal(4)
+    expect(page["see_photos"]).to_equal("Voir les 4 photos")
+    assert_contains(body, "data-slideshow-index=\"3\"")
+    assert_contains(body, "<dialog id=\"slideshow\"")
   end
 
   test("GET /en/rooms/:slug and /es/habitaciones/:slug speak their language") do

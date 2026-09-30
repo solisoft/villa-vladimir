@@ -10,17 +10,22 @@
             <p class="measure text-lg text-muted"><%= room["tagline"] %></p>
         </div>
 
-        <%# First photo large, the others as a strip %>
+        <%# First photo large, the others as a strip; each opens the slideshow %>
         <div class="mt-10 grid gap-3 md:grid-cols-[2fr_1fr]">
-            <img src="<%= photos[0]["src"] %>" alt="<%= photos[0]["alt"] %>" class="aspect-[3/2] h-full w-full rounded-2xl object-cover md:row-span-2">
-<% for photo in photos.drop(1).take(2) %>
-            <img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="hidden aspect-[3/2] h-full w-full rounded-2xl object-cover md:block">
+            <a href="<%= photos[0]["src"] %>" data-slideshow-index="0" class="group relative block overflow-hidden rounded-2xl md:row-span-2">
+                <img src="<%= photos[0]["src"] %>" alt="<%= photos[0]["alt"] %>" class="aspect-[3/2] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+                <span class="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-sea shadow-lg"><%= see_photos %></span>
+            </a>
+<% for photo, index in photos.drop(1).take(2) %>
+            <a href="<%= photo["src"] %>" data-slideshow-index="<%= index + 1 %>" class="group hidden overflow-hidden rounded-2xl md:block">
+                <img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="aspect-[3/2] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
+            </a>
 <% end %>
         </div>
 <% if photos.length > 1 %>
         <div class="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
 <% for photo, index in photos.drop(1) %>
-            <a href="<%= photo["src"] %>" class="<%= index < 2 ? "md:hidden" : "" %> block overflow-hidden rounded-xl"><img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="aspect-square w-full object-cover transition-transform duration-300 hover:scale-105"></a>
+            <a href="<%= photo["src"] %>" data-slideshow-index="<%= index + 1 %>" class="<%= index < 2 ? "md:hidden" : "" %> block overflow-hidden rounded-xl"><img src="<%= photo["src"] %>" alt="<%= photo["alt"] %>" loading="lazy" class="aspect-square w-full object-cover transition-transform duration-300 hover:scale-105"></a>
 <% end %>
         </div>
 <% end %>
@@ -108,3 +113,28 @@
         </ul>
     </div>
 </section>
+
+<%# The slideshow, opened by public/js/slideshow.js %>
+<dialog id="slideshow" class="slideshow" aria-label="<%= room["name"] %>">
+    <ol hidden>
+<% for photo in photos %>
+        <li data-slide data-src="<%= photo["src"] %>" data-alt="<%= photo["alt"] %>"></li>
+<% end %>
+    </ol>
+    <div class="flex h-full flex-col text-white">
+        <div class="flex items-center justify-between gap-4 p-4 sm:px-6">
+            <p data-slideshow-count class="text-sm tabular-nums text-white/70"></p>
+            <button type="button" data-slideshow-close class="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold hover:bg-white/10"><%= words["room_page"]["close_photos"] %></button>
+        </div>
+        <div data-slideshow-stage class="relative flex min-h-0 flex-1 items-center justify-center px-2 sm:px-20">
+            <img data-slideshow-image src="" alt="" class="h-full w-full object-contain">
+            <button type="button" data-slideshow-prev aria-label="<%= words["room_page"]["previous_photo"] %>" class="slideshow-arrow left-2 sm:left-5">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button type="button" data-slideshow-next aria-label="<%= words["room_page"]["next_photo"] %>" class="slideshow-arrow right-2 sm:right-5">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </div>
+        <p data-slideshow-caption class="px-4 py-4 text-center text-white/80 sm:py-5"></p>
+    </div>
+</dialog>
