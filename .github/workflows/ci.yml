@@ -142,6 +142,10 @@ jobs:
       HOST: ${{ secrets.DEPLOY_HOST }}
       USER: ${{ vars.DEPLOY_USER || 'rocky' }}
       SITES_DIR: ${{ vars.DEPLOY_SITES_DIR || '/home/rocky/sites' }}
+      # soli-proxy's routing file (`-c`): since soli-proxy 1.0 it names proxy.conf,
+      # not config.toml. The proxy runs with
+      # `--conf /home/rocky/proxy.conf --sites-dir /home/rocky/sites`.
+      PROXY_CONF: ${{ vars.DEPLOY_PROXY_CONF || '/home/rocky/proxy.conf' }}
       # DOMAIN is what the site answers to (final HTTPS probe), SITE_DIR the
       # folder under sites/, APP the `name` of the server's app.infos.
       DOMAIN: ${{ vars.DEPLOY_DOMAIN || 'vv.solisoft.net' }}
@@ -252,9 +256,9 @@ jobs:
           before="$(ssh "$USER@$HOST" "$PIDS")"
           echo "processes before: ${before:-none}"
           echo "$before" > /tmp/pids-before
-          if ! ssh "$USER@$HOST" "soli-proxy deploy -c '$SITES_DIR/config.toml' '$APP' 2>&1"; then
+          if ! ssh "$USER@$HOST" "soli-proxy deploy -c '$PROXY_CONF' '$APP' 2>&1"; then
             echo "The switch failed. Frequent cause: an orphan slot still holds its port." >&2
-            echo "  ssh $USER@$HOST 'soli-proxy logs -c $SITES_DIR/config.toml $APP'" >&2
+            echo "  ssh $USER@$HOST 'soli-proxy logs -c $PROXY_CONF $APP'" >&2
             exit 1
           fi
 
@@ -278,14 +282,14 @@ jobs:
             fi
           done
           echo "No new slot answered 200 on /up within 90 s." >&2
-          echo "  ssh $USER@$HOST 'soli-proxy logs -c $SITES_DIR/config.toml $APP'" >&2
+          echo "  ssh $USER@$HOST 'soli-proxy logs -c $PROXY_CONF $APP'" >&2
           exit 1
 
       # After a switch the proxy may still balance on both ports while one
       # process runs; `restart` brings both slots up on the current code.
       - name: Bring both slots up
         if: steps.cfg.outputs.configured == 'true'
-        run: ssh "$USER@$HOST" "soli-proxy restart -c '$SITES_DIR/config.toml' '$APP'"
+        run: ssh "$USER@$HOST" "soli-proxy restart -c '$PROXY_CONF' '$APP'"
 
       # End to end, through the proxy, with the real host name.
       - name: The site answers through the proxy
