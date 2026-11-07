@@ -13,6 +13,15 @@
 
 class Availability
   static TTL_SECONDS: Int = 3600
+
+  # After a failed download the stale copy is served this long before the
+  # next attempt: retrying on every visit kept Google answering 429 and
+  # pushed the page past the 30 s handler budget (07/11/2026).
+  static RETRY_AFTER_SECONDS: Int = 900
+
+  # Eight downloads per home page at most: 2 s each keeps the worst case
+  # under the handler budget.
+  static DOWNLOAD_TIMEOUT_SECONDS: Int = 2
   static FEED_URL: String = "https://calendar.google.com/calendar/ical/{id}%40group.calendar.google.com/public/"
   + "basic.ics"
 
@@ -48,15 +57,12 @@ class Availability
   # single nights.
   static def classify(summary)
     text = summary.to_s.downcase
-    return {"state": "taken"} if [
-      "non dispo",
-      "not available",
-      "busy",
-      "complet",
-      "reserv"
-    ].any?(&{ |word|
+    if ["non dispo", "not available", "busy", "complet", "reserv"].any?(&{ |word|
       text.contains(word)
     })
+      return {"state": "taken"}
+    end
+
     return nil unless text.contains("€") || text.contains("libre") || text.contains("free")
 
     digits = Regex.find("[0-9]+", text)
@@ -247,16 +253,29 @@ class Availability
     return stored.body if !stored.nil? && now - stored.fetched_at < Availability.TTL_SECONDS
 
     body = Availability.download(calendar_id)
-    return stored&.body if body.nil?
+    if body.nil?
+      Availability.back_off(stored, now)
+      return stored&.body
+    end
 
     CalendarFeed.remember(stored, calendar_id, body, now)
     body
   end
 
+  # Keeps serving the stale copy for RETRY_AFTER_SECONDS: its fetch time moves
+  # so that it turns stale again only then. Nothing to keep without a copy.
+  static def back_off(stored, now)
+    return nil if stored.nil?
+
+    stored.fetched_at = now - Availability.TTL_SECONDS + Availability.RETRY_AFTER_SECONDS
+    stored.save
+    stored
+  end
+
   # The public ICS of a calendar, or nil on any failure.
   static def download(calendar_id)
     url = Availability.FEED_URL.replace("{id}", calendar_id)
-    answer = HTTP.request("GET", url, {"timeout": 5}) rescue nil
+    answer = HTTP.request("GET", url, {"timeout": Availability.DOWNLOAD_TIMEOUT_SECONDS}) rescue nil
     Availability.ics_body(answer)
   end
 

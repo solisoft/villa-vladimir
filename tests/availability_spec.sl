@@ -224,6 +224,15 @@ describe("Availability") do
       expect(Availability.feed("")).to_equal(nil)
     end
 
+    test("after a failed download, serves the stale copy without retrying for a while") do
+      CalendarFeed.remember(nil, "spec-backoff", "BEGIN:VCALENDAR old", 0)
+      Mock.stub_class(Availability, "download", nil)
+      expect(Availability.feed("spec-backoff")).to_equal("BEGIN:VCALENDAR old")
+      retry = Mock.stub_class(Availability, "download", "BEGIN:VCALENDAR new")
+      expect(Availability.feed("spec-backoff")).to_equal("BEGIN:VCALENDAR old")
+      retry.assert_not_received("download")
+    end
+
     test("merges a room's price and blocked calendars") do
       now = DateTime.utc.to_unix
       price_night = ["20270601", "20270603", "150€ Libre Free"]
